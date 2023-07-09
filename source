@@ -605,7 +605,7 @@ elseif game.PlaceId == 10595058975 then
     local MenuGroup = Tabs['Settings']:AddLeftGroupbox('Menu')
         
     MenuGroup:AddButton('Unload', function() Library:Unload() end)
-    MenuGroup:AddLabel('Menu bind'):AddKeyPicker('MenuKeybind', { Default = 'End', NoUI = true, Text = 'Menu keybind' }) 
+    MenuGroup:AddLabel('Menu bind'):AddKeyPicker('MenuKeybind', { Default = 'RightAlt', NoUI = true, Text = 'Menu keybind' }) 
         
     Library.ToggleKeybind = Options.MenuKeybind -- custom menu keybind
         
