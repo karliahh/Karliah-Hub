@@ -540,7 +540,7 @@ elseif game.PlaceId == 10595058975 then
         print("Tiso TP Check")
     end)
 
-    locl SelviusTP = TPGroupBox:AddButton('Selvius', function()
+    local SelviusTP = TPGroupBox:AddButton('Selvius', function()
         local rpart = game.Players.LocalPlayer.Character.HumanoidRootPart
         rpart.CFrame = CFrame.new(-4735, 46, -2396)
         print("Selvius TP Check")
