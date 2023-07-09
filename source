@@ -521,47 +521,41 @@ elseif game.PlaceId == 10595058975 then
         
     local MainGroupBox = Tabs.Main:AddLeftGroupbox('Main')
     local TPGroupBox = Tabs.Main:AddLeftGroupbox('Teleports')
-    
-    local rpart = game.Players.LocalPlayer.Character.HumanoidRootPart
 
     local ThiefTP = TPGroupBox:AddButton('Thief trainer', function()
+        local rpart = game.Players.LocalPlayer.Character.HumanoidRootPart
         rpart.CFrame = CFrame.new(-447, 42, -3518)
         print("Thief TP Check")
     end)
 
     local VoidDeathTP = TPGroupBox:AddButton('Void', function()
+        local rpart = game.Players.LocalPlayer.Character.HumanoidRootPart
         rpart.CFrame = CFrame.new(-2962, -225, -2507)
         print("Void TP Check")
     end)
 
     local TisoTP = TPGroupBox:AddButton('Tiso', function()
+        local rpart = game.Players.LocalPlayer.Character.HumanoidRootPart
         rpart.CFrame = CFrame.new(-2415, 42, -2912)
         print("Tiso TP Check")
     end)
 
     local SelviusTP = TPGroupBox:AddButton('Selvius', function()
+        local rpart = game.Players.LocalPlayer.Character.HumanoidRootPart
         rpart.CFrame = CFrame.new(-4735, 46, -2396)
         print("Selvius TP Check")
     end)
 
     local PoiraTP = TPGroupBox:AddButton('Poira', function()
+        local rpart = game.Players.LocalPlayer.Character.HumanoidRootPart
         rpart.CFrame = CFrame.new(-189, 42, -3430)
         print("Poira TP Check")
     end)
 
     local JeithTP = TPGroupBox:AddButton('Jeith', function()
+        local rpart = game.Players.LocalPlayer.Character.HumanoidRootPart
         rpart.CFrame = CFrame.new(-2554, 42, -2907)
         print("Jeith TP Check")
-    end)
-
-    local RemoveFog = MainGroupBox:AddButton('Remove Fog', function()
-        while true do
-            wait(2)
-            if game.Lighting:FindFirstChild("Fog") ~= nil then
-            game.Lighting.Fog:Destroy()
-            print('Fog has been removed!')
-            end
-        end
     end)
         
     local InfiniteZoom = MainGroupBox:AddButton('Infinite Zoom', function()
@@ -597,7 +591,6 @@ elseif game.PlaceId == 10595058975 then
     SelviusTP:AddTooltip('TP to Selvius to give elixir for the quest (then go back to Tiso to finish the quest)')
     PoiraTP:AddTooltip('TP to Poira for delivery quest')
     JeithTP:AddTooltip('TP to Jeith to finish delivery quest')
-    RemoveFog:AddTooltip('Removes fog')
     ClickTP:AddTooltip('Gives you a tool that lets you click to tp')
     Infinite_Yield:AddTooltip('Executes Infinite Yield script')
         
@@ -614,7 +607,7 @@ elseif game.PlaceId == 10595058975 then
     -- Credits
     local Credits = Tabs['Credits']:AddLeftGroupbox('Credits')
     Credits:AddLabel('Discord invite: NxFhq2Jnnw')
-    Credits:AddLabel('Travis#8000')
+    Credits:AddLabel('imstruggling')
     Credits:AddLabel('Linoria Rewrite UI Library')
         
     -- UI Settings
@@ -635,7 +628,7 @@ elseif game.PlaceId == 10595058975 then
     SaveManager:SetIgnoreIndexes({ 'MenuKeybind' }) 
         
     ThemeManager:SetFolder('KarliahHub')
-    SaveManager:SetFolder('KarliahHub/NST')
+    SaveManager:SetFolder('KarliahHub/AL')
         
     SaveManager:BuildConfigSection(Tabs['Settings']) 
         
