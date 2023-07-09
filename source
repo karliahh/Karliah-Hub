@@ -521,45 +521,38 @@ elseif game.PlaceId == 10595058975 then
         
     local MainGroupBox = Tabs.Main:AddLeftGroupbox('Main')
     local TPGroupBox = Tabs.Main:AddLeftGroupbox('Teleports')
-    local MoneyTPGroupBox = Tabs.Main:AddLeftGroupbox('Quests Teleports')
 
-    local ToxicEnchant = MoneyTPGroupBox:AddButton('Toxic Enchant', function()
-        local rpart = game.Players.LocalPlayer.Character.HumanoidRootPart
-        rpart.CFrame = CFrame.new(5989, 53, -3491)
-        print("Toxic Enchantment TP Check")
-    end)
-
-    local ThiefTP = MoneyTPGroupBox:AddButton('Thief trainer', function()
+    local ThiefTP = TPGroupBox:AddButton('Thief trainer', function()
         local rpart = game.Players.LocalPlayer.Character.HumanoidRootPart
         rpart.CFrame = CFrame.new(-447, 42, -3518)
         print("Thief TP Check")
     end)
 
-    local VoidDeathTP = MoneyTPGroupBox:AddButton('Void', function()
+    local VoidDeathTP = TPGroupBox:AddButton('Void', function()
         local rpart = game.Players.LocalPlayer.Character.HumanoidRootPart
         rpart.CFrame = CFrame.new(-2962, -225, -2507)
         print("Void TP Check")
     end)
 
-    local TisoTP = MoneyTPGroupBox:AddButton('Tiso', function()
+    local TisoTP = TPGroupBox:AddButton('Tiso', function()
         local rpart = game.Players.LocalPlayer.Character.HumanoidRootPart
         rpart.CFrame = CFrame.new(-2415, 42, -2912)
         print("Tiso TP Check")
     end)
 
-    locl SelviusTP = MoneyTPGroupBox:AddButton('Selvius', function()
+    locl SelviusTP = TPGroupBox:AddButton('Selvius', function()
         local rpart = game.Players.LocalPlayer.Character.HumanoidRootPart
         rpart.CFrame = CFrame.new(-4735, 46, -2396)
         print("Selvius TP Check")
     end)
 
-    local PoiraTP = MoneyTPGroupBox:AddButton('Poira', function()
+    local PoiraTP = TPGroupBox:AddButton('Poira', function()
         local rpart = game.Players.LocalPlayer.Character.HumanoidRootPart
         rpart.CFrame = CFrame.new(-189, 42, -3430)
         print("Poira TP Check")
     end)
 
-    local JeithTP = MoneyTPGroupBox:AddButton('Jeith', function()
+    local JeithTP = TPGroupBox:AddButton('Jeith', function()
         local rpart = game.Players.LocalPlayer.Character.HumanoidRootPart
         rpart.CFrame = CFrame.new(-2554, 42, -2907)
         print("Jeith TP Check")
@@ -624,7 +617,7 @@ elseif game.PlaceId == 10595058975 then
     SaveManager:IgnoreThemeSettings() 
         
     SaveManager:SetIgnoreIndexes({ 'MenuKeybind' }) 
-        
+            
     ThemeManager:SetFolder('KarliahHub')
     SaveManager:SetFolder('KarliahHub/AL')
         
