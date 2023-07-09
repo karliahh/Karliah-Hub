@@ -562,6 +562,16 @@ elseif game.PlaceId == 10595058975 then
         game:GetService("Players").LocalPlayer.CameraMaxZoomDistance = math.huge
         print('Infinite Zoom has been enabled!')
     end)
+
+    local RemoveDOF = MainGroupBox:AddButton('Remove Depth Of Field', function()
+        game.Lighting.DepthOfField:Destroy()
+        print('Depth Of Field has been removed')
+    end)
+
+    local RemoveFog = MainGroupBox:AddButton('Remove Fog', function()
+        game.Lighting.Atmosphere:Destroy()
+        print('Fog has been removed')
+    end)
         
     local ClickTP = MainGroupBox:AddButton('Click TP', function()
         local plr = game:GetService("Players").LocalPlayer
