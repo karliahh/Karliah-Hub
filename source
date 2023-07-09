@@ -409,220 +409,251 @@ SaveManager:LoadAutoloadConfig()
 
 -- NST
 elseif game.PlaceId == 6008108575 then
-    local repo = 'https://raw.githubusercontent.com/wally-rblx/LinoriaLib/main/'
-        
-    local Library = loadstring(game:HttpGet(repo .. 'Library.lua'))()
-    local ThemeManager = loadstring(game:HttpGet(repo .. 'addons/ThemeManager.lua'))()
-    local SaveManager = loadstring(game:HttpGet(repo .. 'addons/SaveManager.lua'))()
-        
-    local Window = Library:CreateWindow({
-        Title = 'Karliah Hub',
-        Center = true, 
-        AutoShow = true,
-    })
-        
-    local Tabs = {
-        Main = Window:AddTab('NST'), 
-        ['Credits'] = Window:AddTab('Credits'),
-        ['Settings'] = Window:AddTab('Settings'),
-    }
-        
-    local MainGroupBox = Tabs.Main:AddLeftGroupbox('Main')
-
-    MainGroupBox:AddToggle('CoinFarm', {
-        Text = 'Coin Auto Farm',
-        Default = false, 
-        Tooltip = 'Automatically farms coins', 
-    })
+local repo = 'https://raw.githubusercontent.com/wally-rblx/LinoriaLib/main/'
     
-    _G.Toggle = false
+local Library = loadstring(game:HttpGet(repo .. 'Library.lua'))()
+local ThemeManager = loadstring(game:HttpGet(repo .. 'addons/ThemeManager.lua'))()
+local SaveManager = loadstring(game:HttpGet(repo .. 'addons/SaveManager.lua'))()
     
-    Toggles.CoinFarm:OnChanged(function()
-        task.spawn(function()
-            _G.Toggle = Toggles.CoinFarm.Value
-        
-            while _G.Toggle do
-                local plrs = game:GetService("Players")
-                local plr = plrs.LocalPlayer
-                local RP = plr.Character.HumanoidRootPart
+local Window = Library:CreateWindow({
+    Title = 'Karliah Hub',
+    Center = true, 
+    AutoShow = true,
+})
+    
+local Tabs = {
+    Main = Window:AddTab('NST'), 
+    ['Credits'] = Window:AddTab('Credits'),
+    ['Settings'] = Window:AddTab('Settings'),
+}
+    
+local MainGroupBox = Tabs.Main:AddLeftGroupbox('Main')
 
-                print(RP.CFrame)
-                RP.CFrame = CFrame.new(-510, 175, 61)
-                wait(30)
-            end
-        end)
-    end)
+MainGroupBox:AddToggle('CoinFarm', {
+    Text = 'Coin Auto Farm',
+    Default = false, 
+    Tooltip = 'Automatically farms coins', 
+})
 
-    local InfiniteZoom = MainGroupBox:AddButton('Infinite Zoom', function()
-        game:GetService("Players").LocalPlayer.CameraMaxZoomDistance = math.huge
-        print('Infinite Zoom has been enabled!')
+_G.Toggle = false
+
+Toggles.CoinFarm:OnChanged(function()
+    task.spawn(function()
+        _G.Toggle = Toggles.CoinFarm.Value
+    
+        while _G.Toggle do
+            local plrs = game:GetService("Players")
+            local plr = plrs.LocalPlayer
+            local RP = plr.Character.HumanoidRootPart
+
+            print(RP.CFrame)
+            RP.CFrame = CFrame.new(-510, 175, 61)
+            wait(30)
+        end
     end)
-        
-    -- Library functions
-    Library:SetWatermarkVisibility(true)
-        
-    Library:SetWatermark('Karliah Hub')
-        
-    Library:OnUnload(function()
-        print('Unloaded!')
-        Library.Unloaded = true
-    end)
-        
-    -- Credits
-    local Credits = Tabs['Credits']:AddLeftGroupbox('Credits')
-    Credits:AddLabel('Discord invite: NxFhq2Jnnw')
-    Credits:AddLabel('Travis#8000')
-    Credits:AddLabel('Linoria Rewrite UI Library')
-        
-    -- UI Settings
-    local MenuGroup = Tabs['Settings']:AddLeftGroupbox('Menu')
-        
-    MenuGroup:AddButton('Unload', function() Library:Unload() end)
-    MenuGroup:AddLabel('Menu bind'):AddKeyPicker('MenuKeybind', { Default = 'RightControl', NoUI = true, Text = 'Menu keybind' }) 
-        
-    Library.ToggleKeybind = Options.MenuKeybind -- custom menu keybind
-        
-    -- Addons:
-        
-    ThemeManager:SetLibrary(Library)
-    SaveManager:SetLibrary(Library)
-        
-    SaveManager:IgnoreThemeSettings() 
-        
-    SaveManager:SetIgnoreIndexes({ 'MenuKeybind' }) 
-        
-    ThemeManager:SetFolder('KarliahHub')
-    SaveManager:SetFolder('KarliahHub/NST')
-        
-    SaveManager:BuildConfigSection(Tabs['Settings']) 
-        
-    ThemeManager:ApplyToTab(Tabs['Settings'])
-    SaveManager:LoadAutoloadConfig()
+end)
+
+local InfiniteZoom = MainGroupBox:AddButton('Infinite Zoom', function()
+    game:GetService("Players").LocalPlayer.CameraMaxZoomDistance = math.huge
+    print('Infinite Zoom has been enabled!')
+end)
+    
+-- Library functions
+Library:SetWatermarkVisibility(true)
+    
+Library:SetWatermark('Karliah Hub')
+    
+Library:OnUnload(function()
+    print('Unloaded!')
+    Library.Unloaded = true
+end)
+    
+-- Credits
+local Credits = Tabs['Credits']:AddLeftGroupbox('Credits')
+Credits:AddLabel('Discord invite: NxFhq2Jnnw')
+Credits:AddLabel('Travis#8000')
+Credits:AddLabel('Linoria Rewrite UI Library')
+    
+-- UI Settings
+local MenuGroup = Tabs['Settings']:AddLeftGroupbox('Menu')
+    
+MenuGroup:AddButton('Unload', function() Library:Unload() end)
+MenuGroup:AddLabel('Menu bind'):AddKeyPicker('MenuKeybind', { Default = 'RightControl', NoUI = true, Text = 'Menu keybind' }) 
+    
+Library.ToggleKeybind = Options.MenuKeybind -- custom menu keybind
+    
+-- Addons:
+    
+ThemeManager:SetLibrary(Library)
+SaveManager:SetLibrary(Library)
+    
+SaveManager:IgnoreThemeSettings() 
+    
+SaveManager:SetIgnoreIndexes({ 'MenuKeybind' }) 
+    
+ThemeManager:SetFolder('KarliahHub')
+SaveManager:SetFolder('KarliahHub/NST')
+    
+SaveManager:BuildConfigSection(Tabs['Settings']) 
+    
+ThemeManager:ApplyToTab(Tabs['Settings'])
+SaveManager:LoadAutoloadConfig()
 
 -- Arcane Lineage
 elseif game.PlaceId == 10595058975 then
-    local repo = 'https://raw.githubusercontent.com/wally-rblx/LinoriaLib/main/'
-        
-    local Library = loadstring(game:HttpGet(repo .. 'Library.lua'))()
-    local ThemeManager = loadstring(game:HttpGet(repo .. 'addons/ThemeManager.lua'))()
-    local SaveManager = loadstring(game:HttpGet(repo .. 'addons/SaveManager.lua'))()
-        
-    local Window = Library:CreateWindow({
-        Title = 'Karliah Hub',
-        Center = true, 
-        AutoShow = true,
-    })
-        
-    local Tabs = {
-        Main = Window:AddTab('Arcane Lineage'), 
-        ['Credits'] = Window:AddTab('Credits'),
-        ['Settings'] = Window:AddTab('Settings'),
-    }
-        
-    local MainGroupBox = Tabs.Main:AddLeftGroupbox('Main')
-    local TPGroupBox = Tabs.Main:AddLeftGroupbox('Teleports')
+local repo = 'https://raw.githubusercontent.com/wally-rblx/LinoriaLib/main/'
 
-    local ThiefTP = TPGroupBox:AddButton('Thief trainer', function()
-        local rpart = game.Players.LocalPlayer.Character.HumanoidRootPart
-        rpart.CFrame = CFrame.new(-447, 42, -3518)
-        print("Thief TP Check")
-    end)
+local Library = loadstring(game:HttpGet(repo .. 'Library.lua'))()
+local ThemeManager = loadstring(game:HttpGet(repo .. 'addons/ThemeManager.lua'))()
+local SaveManager = loadstring(game:HttpGet(repo .. 'addons/SaveManager.lua'))()
 
-    local VoidDeathTP = TPGroupBox:AddButton('Void', function()
-        local rpart = game.Players.LocalPlayer.Character.HumanoidRootPart
-        rpart.CFrame = CFrame.new(-2962, -225, -2507)
-        print("Void TP Check")
-    end)
+local Window = Library:CreateWindow({
+    Title = 'Karliah Hub',
+    Center = true, 
+    AutoShow = true,
+})
 
-    local TisoTP = TPGroupBox:AddButton('Tiso', function()
-        local rpart = game.Players.LocalPlayer.Character.HumanoidRootPart
-        rpart.CFrame = CFrame.new(-2415, 42, -2912)
-        print("Tiso TP Check")
-    end)
+local Tabs = {
+    Main = Window:AddTab('Arcane Lineage'), 
+    ['Credits'] = Window:AddTab('Credits'),
+    ['Settings'] = Window:AddTab('Settings'),
+}
+        
+local MainGroupBox = Tabs.Main:AddLeftGroupbox('Main')
+local TPGroupBox = Tabs.Main:AddLeftGroupbox('Teleports')
 
-    local SelviusTP = TPGroupBox:AddButton('Selvius', function()
-        local rpart = game.Players.LocalPlayer.Character.HumanoidRootPart
-        rpart.CFrame = CFrame.new(-4735, 46, -2396)
-        print("Selvius TP Check")
-    end)
+local ThiefTP = TPGroupBox:AddButton('Thief trainer', function()
+    local rpart = game.Players.LocalPlayer.Character.HumanoidRootPart
+    rpart.CFrame = CFrame.new(-447, 42, -3518)
+    print("Thief TP Check")
+end)
 
-    local PoiraTP = TPGroupBox:AddButton('Poira', function()
-        local rpart = game.Players.LocalPlayer.Character.HumanoidRootPart
-        rpart.CFrame = CFrame.new(-189, 42, -3430)
-        print("Poira TP Check")
-    end)
+local VoidDeathTP = TPGroupBox:AddButton('Void', function()
+    local rpart = game.Players.LocalPlayer.Character.HumanoidRootPart
+    rpart.CFrame = CFrame.new(-2962, -225, -2507)
+    print("Void TP Check")
+end)
 
-    local JeithTP = TPGroupBox:AddButton('Jeith', function()
-        local rpart = game.Players.LocalPlayer.Character.HumanoidRootPart
-        rpart.CFrame = CFrame.new(-2554, 42, -2907)
-        print("Jeith TP Check")
-    end)
+local TisoTP = TPGroupBox:AddButton('Tiso', function()
+    local rpart = game.Players.LocalPlayer.Character.HumanoidRootPart
+    rpart.CFrame = CFrame.new(-2415, 42, -2912)
+    print("Tiso TP Check")
+end)
 
-    local InfiniteZoom = MainGroupBox:AddButton('Infinite Zoom', function()
-        game:GetService("Players").LocalPlayer.CameraMaxZoomDistance = math.huge
-        print('Infinite Zoom has been enabled!')
-    end)
+local SelviusTP = TPGroupBox:AddButton('Selvius', function()
+    local rpart = game.Players.LocalPlayer.Character.HumanoidRootPart
+    rpart.CFrame = CFrame.new(-4735, 46, -2396)
+    print("Selvius TP Check")
+end)
 
-    local RemoveDOF = MainGroupBox:AddButton('Remove Depth Of Field', function()
-        game.Lighting.DepthOfField:Destroy()
-        print('Depth Of Field has been removed')
-    end)
+local PoiraTP = TPGroupBox:AddButton('Poira', function()
+    local rpart = game.Players.LocalPlayer.Character.HumanoidRootPart
+    rpart.CFrame = CFrame.new(-189, 42, -3430)
+    print("Poira TP Check")
+end)
 
-    local RemoveFog = MainGroupBox:AddButton('Remove Fog', function()
-        game.Lighting.Atmosphere:Destroy()
-        print('Fog has been removed')
-    end)
-        
-    local Infinite_Yield = MainGroupBox:AddButton('Infinite Yield', function()
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
-    end)
+local JeithTP = TPGroupBox:AddButton('Jeith', function()
+    local rpart = game.Players.LocalPlayer.Character.HumanoidRootPart
+    rpart.CFrame = CFrame.new(-2554, 42, -2907)
+    print("Jeith TP Check")
+end)
 
-    ThiefTP:AddTooltip('TP to thief trainer in alleyway')
-    VoidDeathTp:AddTooltip('TP to void (instant death)')
-    TisoTP:AddTooltip('TP to Tiso for elixir quest')
-    SelviusTP:AddTooltip('TP to Selvius to give elixir for the quest (then go back to Tiso to finish the quest)')
-    PoiraTP:AddTooltip('TP to Poira for delivery quest')
-    JeithTP:AddTooltip('TP to Jeith to finish delivery quest')
-    Infinite_Yield:AddTooltip('Executes Infinite Yield script')
+local InfiniteZoom = MainGroupBox:AddButton('Infinite Zoom', function()
+    game:GetService("Players").LocalPlayer.CameraMaxZoomDistance = math.huge
+    print('Infinite Zoom has been enabled!')
+end)
+
+local RemoveDOF = MainGroupBox:AddButton('Remove Depth Of Field', function()
+    game.Lighting.DepthOfField:Destroy()
+    print('Depth Of Field has been removed')
+end)
+
+local RemoveFog = MainGroupBox:AddButton('Remove Fog', function()
+    game.Lighting.Atmosphere:Destroy()
+    print('Fog has been removed')
+end)
         
-    -- Library functions
-    Library:SetWatermarkVisibility(true)
-        
-    Library:SetWatermark('Karliah Hub')
-        
-    Library:OnUnload(function()
-        print('Unloaded!')
-        Library.Unloaded = true
-    end)
-        
-    -- Credits
-    local Credits = Tabs['Credits']:AddLeftGroupbox('Credits')
-    Credits:AddLabel('Discord invite: NxFhq2Jnnw')
-    Credits:AddLabel('imstruggling')
-    Credits:AddLabel('Linoria Rewrite UI Library')
-        
-    -- UI Settings
-    local MenuGroup = Tabs['Settings']:AddLeftGroupbox('Menu')
-        
-    MenuGroup:AddButton('Unload', function() Library:Unload() end)
-    MenuGroup:AddLabel('Menu bind'):AddKeyPicker('MenuKeybind', { Default = 'RightShift', NoUI = true, Text = 'Menu keybind' }) 
-        
-    Library.ToggleKeybind = Options.MenuKeybind -- custom menu keybind
-        
-    -- Addons:
-        
-    ThemeManager:SetLibrary(Library)
-    SaveManager:SetLibrary(Library)
-        
-    SaveManager:IgnoreThemeSettings() 
-        
-    SaveManager:SetIgnoreIndexes({ 'MenuKeybind' }) 
+local Infinite_Yield = MainGroupBox:AddButton('Infinite Yield', function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+
+local AutoDodge = MainGroupBox:AddButton('Auto Dodge', function()
+    for i,v in next, getgc() do
+        if typeof(v) == "function" and islclosure(v) and not isexecutorclosure(v) then
+            local Constants = debug.getconstants(v)
             
-    ThemeManager:SetFolder('KarliahHub')
-    SaveManager:SetFolder('KarliahHub/AL')
+            if table.find(Constants, "Detected") and table.find(Constants, "crash") then
+                setthreadidentity(2)
+                hookfunction(v, function()
+                    return task.wait(9e9)
+                end)
+                setthreadidentity(7)
+            end
+        end
+        end
         
-    SaveManager:BuildConfigSection(Tabs['Settings']) 
+        task.wait()
+        local old
+        old = hookmetamethod(game, "__namecall", function(self, ...)
+            if self.Name == "RemoteFunction" and getnamecallmethod() == "FireServer" then
+                local args = {...}
+                if args[2] == "DodgeMinigame" and typeof(args[1]) == "table" then
+                args[1] = {true, true}
+                return old(self, unpack(args))
+                end
+            end
+            return old(self, ...)
+        end)
+end)
+
+ThiefTP:AddTooltip('TP to thief trainer in alleyway')
+VoidDeathTp:AddTooltip('TP to void (instant death)')
+TisoTP:AddTooltip('TP to Tiso for elixir quest')
+SelviusTP:AddTooltip('TP to Selvius to give elixir for the quest (then go back to Tiso to finish the quest)')
+PoiraTP:AddTooltip('TP to Poira for delivery quest')
+JeithTP:AddTooltip('TP to Jeith to finish delivery quest')
+Infinite_Yield:AddTooltip('Executes Infinite Yield script')
+AutoDodge:AddTooltip('Auto dodge everything')
         
-    ThemeManager:ApplyToTab(Tabs['Settings'])
-    SaveManager:LoadAutoloadConfig()
+-- Library functions
+Library:SetWatermarkVisibility(true)
+    
+Library:SetWatermark('Karliah Hub')
+    
+Library:OnUnload(function()
+    print('Unloaded!')
+    Library.Unloaded = true
+end)
+    
+-- Credits
+local Credits = Tabs['Credits']:AddLeftGroupbox('Credits')
+Credits:AddLabel('Discord invite: NxFhq2Jnnw')
+Credits:AddLabel('Travis#8000')
+Credits:AddLabel('Linoria Rewrite UI Library')
+    
+-- UI Settings
+local MenuGroup = Tabs['Settings']:AddLeftGroupbox('Menu')
+    
+MenuGroup:AddButton('Unload', function() Library:Unload() end)
+MenuGroup:AddLabel('Menu bind'):AddKeyPicker('MenuKeybind', { Default = 'RightControl', NoUI = true, Text = 'Menu keybind' }) 
+    
+Library.ToggleKeybind = Options.MenuKeybind -- custom menu keybind
+    
+-- Addons:
+    
+ThemeManager:SetLibrary(Library)
+SaveManager:SetLibrary(Library)
+    
+SaveManager:IgnoreThemeSettings() 
+    
+SaveManager:SetIgnoreIndexes({ 'MenuKeybind' }) 
+    
+ThemeManager:SetFolder('KarliahHub')
+SaveManager:SetFolder('KarliahHub/arcane-lineage')
+    
+SaveManager:BuildConfigSection(Tabs['Settings']) 
+    
+ThemeManager:ApplyToTab(Tabs['Settings'])
+SaveManager:LoadAutoloadConfig()
+
 end
