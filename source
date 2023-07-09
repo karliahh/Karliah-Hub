@@ -573,24 +573,6 @@ elseif game.PlaceId == 10595058975 then
         print('Fog has been removed')
     end)
         
-    local ClickTP = MainGroupBox:AddButton('Click TP', function()
-        local plr = game:GetService("Players").LocalPlayer
-        local gprosuperlightbestmouse = plr:GetMouse()
-    
-        local tool = Instance.new("Tool")
-        tool.RequiresHandle = false
-        tool.Name = "Click TP"
-    
-        tool.Activated:Connect(function()
-        local rp = plr.Character.HumanoidRootPart
-        local pos = gprosuperlightbestmouse.Hit.Position+Vector3.new(0,2.5,0)
-        local offset = pos-rp.Position
-        rp.CFrame = rp.CFrame+offset
-        end)
-    
-        tool.Parent = plr.Backpack
-    end)
-        
     local Infinite_Yield = MainGroupBox:AddButton('Infinite Yield', function()
         loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
     end)
@@ -601,7 +583,6 @@ elseif game.PlaceId == 10595058975 then
     SelviusTP:AddTooltip('TP to Selvius to give elixir for the quest (then go back to Tiso to finish the quest)')
     PoiraTP:AddTooltip('TP to Poira for delivery quest')
     JeithTP:AddTooltip('TP to Jeith to finish delivery quest')
-    ClickTP:AddTooltip('Gives you a tool that lets you click to tp')
     Infinite_Yield:AddTooltip('Executes Infinite Yield script')
         
     -- Library functions
