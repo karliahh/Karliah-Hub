@@ -514,7 +514,7 @@ elseif game.PlaceId == 10595058975 then
     })
         
     local Tabs = {
-        Main = Window:AddTab('Arcane Lineage TPs'), 
+        Main = Window:AddTab('Arcane Lineage'), 
         ['Credits'] = Window:AddTab('Credits'),
         ['Settings'] = Window:AddTab('Settings'),
     }
